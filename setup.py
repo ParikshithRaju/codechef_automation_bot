@@ -9,6 +9,8 @@ import time
 from bs4 import BeautifulSoup
 import requests
 from shutil import copyfile
+import pickle
+from simplecrypt import encrypt
 
 origin_path = os.getcwd()
 
@@ -32,7 +34,9 @@ basic_details['user_name'] = uname
 
 basic_details['path'] = os.getcwd()
 
-basic_details['password'] = passwd  # FIXME:hash the password before saving it
+encryptedPass = encrypt('password', passwd)
+
+basic_details['password'] = encryptedPass  # FIXME:hash the password before saving it
 
 months = ['JAN', 'FEB', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUG', 'SEPT', 'OCT', 'DEC']
 
@@ -239,5 +243,8 @@ for problem in probDict.items():
 os.chdir(origin_path)
 print('Successfuly created a contest for you !!!!')
 
-with open(path + '/' + contName + '/basic_details.json', 'w') as file:
-    json.dump(basic_details, file)
+# with open(path + '/' + contName + '/basic_details.json', 'w') as file:
+#     json.dump(basic_details, file)
+
+with open(path + '/' + contName + '/basic_details.json', 'wb') as f:
+    pickle.dump(basic_details, f)

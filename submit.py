@@ -4,10 +4,11 @@ from selenium.common.exceptions import NoSuchElementException
 import os
 import time
 import json
-
+import pickle
+from simplecrypt import decrypt
 basic_details = {}
-with open('../basic_details.json', 'r') as f:
-    basic_details = json.load(f)
+with open('../basic_details.json', 'rb') as f:
+    basic_details = pickle.load(f)
 
 
 chromeOptions = Options()
@@ -19,13 +20,14 @@ driver.get('https://www.codechef.com')
 time.sleep(3)
 # TODO : Ask for username and password from user and tell the user that we will logout of existing places
 
+password = decrypt('password', basic_details['password']).decode('utf8')
 
 # Logging in
 uname_sel = driver.find_element_by_css_selector('#edit-name')
 pass_sel = driver.find_element_by_css_selector('#edit-pass')
 sub_sel = driver.find_element_by_css_selector('#edit-submit')
 uname_sel.send_keys(basic_details['user_name'])
-pass_sel.send_keys(basic_details['password'])
+pass_sel.send_keys(password)
 sub_sel.click()
 try:
     time.sleep(5)
