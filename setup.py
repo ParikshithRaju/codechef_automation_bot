@@ -70,7 +70,8 @@ def CreateDict(contests, laddress):
             contests[month + ' lunch time'] = {'linkAddr': laddress}
     return (contests)
 
-#FIXME: fix the timing of the searching of elements gets real anoying when we aren't noticing
+
+# FIXME: fix the timing of the searching of elements gets real anoying when we aren't noticing
 def getContent(probName):
     url = 'https://www.codechef.com/' + probDict[probName]['link']
     probPage = requests.get(url)
