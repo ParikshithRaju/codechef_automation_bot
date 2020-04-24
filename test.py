@@ -20,9 +20,9 @@ ylen, tlen = len(yout), len(tout)
 if ylen == tlen:
     for i in range(0, tlen):
         if yout[i] != tout[i]:
-            print('Outputs doesn\'t Match 😥 keep trying 💪')
+            print('Outputs doesn\'t Match 😥 keep trying 💪  .To see your output see yourOut.dat file.')
             break
     else:
-        print('Outputs Match Awesome 👏  👏  🎉  🎊')
+        print('Outputs Match Awesome 👏  👏  🎉  🎊 . To see your output see yourOut.dat file.')
 else:
-    print('Output doesn\'t Match 😥 keep trying 💪')
+    print('Output doesn\'t Match 😥 keep trying 💪  .To see your output see yourOut.dat file.')

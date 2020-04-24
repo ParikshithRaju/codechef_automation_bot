@@ -12,7 +12,7 @@ with open('../basic_details.json', 'r') as f:
 
 chromeOptions = Options()
 chromeOptions.add_argument('--headless')
-driver = webdriver.Chrome(basic_details['path']+'/chromedriver')
+driver = webdriver.Chrome(basic_details['path']+'/chromedriver',options=chromeOptions)
 
 driver.get('https://www.codechef.com')
 
