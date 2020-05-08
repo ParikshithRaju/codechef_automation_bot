@@ -59,3 +59,7 @@ python3 (filename)
 ### Submitting solution pics:
 ![](assets/submit_pic1.png)
 ![](assets/submit_pic2.png)
+
+### Contact information:
+Please conact me if you have any query regarding the usage or if you want to contribute to the code.                                
+**Email**: parikshithraju8@gmail.com
