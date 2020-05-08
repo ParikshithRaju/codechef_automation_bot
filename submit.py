@@ -6,14 +6,35 @@ import time
 import json
 import pickle
 from simplecrypt import decrypt
+import itertools
+import threading
+import time
+import sys
+
+done = False
+
+
+# here is the animation
+def animate():
+    for c in itertools.cycle(['|', '/', '-', '\\']):
+        if done:
+            break
+        sys.stdout.write('\rSubmiting your code to the online judge(It takes time please be patient):' + c)
+        sys.stdout.flush()
+        time.sleep(0.1)
+    print('\n')
+
+
+t = threading.Thread(target=animate)
+t.start()
+
 basic_details = {}
 with open('../basic_details.json', 'rb') as f:
     basic_details = pickle.load(f)
 
-
 chromeOptions = Options()
 chromeOptions.add_argument('--headless')
-driver = webdriver.Chrome(basic_details['path']+'/chromedriver',options=chromeOptions)
+driver = webdriver.Chrome(basic_details['path'] + '/chromedriver', options=chromeOptions)
 
 driver.get('https://www.codechef.com')
 
@@ -91,11 +112,12 @@ for i in status[1:-1]:
 
 # Printing the result in appropriate from
 
-
+done=True
+print('\n')
 if 'Correct Answer' != overall_res.text:
     print('{:😥^35}'.format(overall_res.text))
 else:
-    print('{:^35}'.format(overall_res.text))
+    print('{:👏^35}'.format(overall_res.text))
 cnt = 0
 print('\n{:^20}{:^20}{:^20}'.format('Sub-Task', 'Task #', 'Result (time)'))
 for i in sub_tasks:

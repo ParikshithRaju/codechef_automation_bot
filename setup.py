@@ -15,7 +15,7 @@ from simplecrypt import encrypt
 origin_path = os.getcwd()
 
 basic_details = dict()
-print('{:^470}'.format('Welcome to codechef contest setup bot!!'))
+print('{:🤝^95}'.format(' Welcome to codechef contest setup bot!!'))
 while 1:
     path = input('Enter the path in which you want to create the contest:')
     if not path.startswith('/'):
@@ -24,10 +24,9 @@ while 1:
         break
 
 print('{:^150}'.format('Make sure you give the correct username and password because you won\'t get an error even if '
-                       'you didn\'t!!!'))
+                       'you didn\'t !!!'))
 
 uname = input('Enter your codechef username:')
-print('{:^165}'.format('The letters won\'t showup don\'t worry'))
 passwd = getpass('Enter your codechef password:')
 
 basic_details['user_name'] = uname
@@ -116,11 +115,11 @@ chromeOptions.add_argument('--headless')
 
 driver = webdriver.Chrome('./chromedriver', options=chromeOptions)
 
-print('1).Do you want to use the our ui or')
+print('1).Do you want to use our ui or')
 print('2).Will you put the link of the contest')
 c = int(input('Enter your choice:'))
 if c == 2:
-    TargetPath = input('Enter URL of the contest in which announcments and timing details:')
+    TargetPath = input('Enter URL of the contest:')
     contests = {}
     contests = CreateDict(contests, TargetPath)
     ch = 1
